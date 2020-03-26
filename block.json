@@ -1,0 +1,95 @@
+{
+  "jsonrpc": "2.0",
+  "id": "",
+  "result": {
+    "block_meta": {
+      "block_id": {
+        "hash": "4091908A50CF229EC01286642ACD29ABDCCCAC88",
+        "parts": {
+          "total": "1",
+          "hash": "CDC3574867F5AE04FEFB87D409F24E93D59202BE"
+        }
+      },
+      "header": {
+        "chain_id": "test-chain-MrILdi",
+        "height": "67",
+        "time": "2019-02-12T10:03:22.223542872Z",
+        "num_txs": "0",
+        "last_block_id": {
+          "hash": "37B63B07BF3CFE2F0229C238F48FD56484B4B148",
+          "parts": {
+            "total": "1",
+            "hash": "65F0CC33182344945CFC3AC7CFAE9433C2DBFD9B"
+          }
+        },
+        "total_txs": "4",
+        "last_commit_hash": "FF8565CC814AB859CC100D10D21BCB90898C22E0",
+        "data_hash": "",
+        "validators_hash": "29E35B1D2125C2135AC264341F7B6BE366B92F3F",
+        "consensus_hash": "D6B74BB35BDFFD8392340F2A379173548AE188FE",
+        "app_hash": "39353732646266323433366163346533356164626338656539353966346238643638386536363638366535663730313433306133393035343861653138333761",
+        "last_results_hash": "",
+        "evidence_hash": ""
+      }
+    },
+    "block": {
+      "header": {
+        "chain_id": "test-chain-MrILdi",
+        "height": "67",
+        "time": "2019-02-12T10:03:22.223542872Z",
+        "num_txs": "0",
+        "last_block_id": {
+          "hash": "37B63B07BF3CFE2F0229C238F48FD56484B4B148",
+          "parts": {
+            "total": "1",
+            "hash": "65F0CC33182344945CFC3AC7CFAE9433C2DBFD9B"
+          }
+        },
+        "total_txs": "4",
+        "last_commit_hash": "FF8565CC814AB859CC100D10D21BCB90898C22E0",
+        "data_hash": "",
+        "validators_hash": "29E35B1D2125C2135AC264341F7B6BE366B92F3F",
+        "consensus_hash": "D6B74BB35BDFFD8392340F2A379173548AE188FE",
+        "app_hash": "39353732646266323433366163346533356164626338656539353966346238643638386536363638366535663730313433306133393035343861653138333761",
+        "last_results_hash": "",
+        "evidence_hash": ""
+      },
+      "data": {
+        "txs": null
+      },
+      "evidence": {
+        "evidence": null
+      },
+      "last_commit": {
+        "block_id": {
+          "hash": "37B63B07BF3CFE2F0229C238F48FD56484B4B148",
+          "parts": {
+            "total": "1",
+            "hash": "65F0CC33182344945CFC3AC7CFAE9433C2DBFD9B"
+          }
+        },
+        "precommits": [
+          {
+            "validator_address": "4D277C15BF1E1AD8F1B183CB2A187C029AED6528",
+            "validator_index": "0",
+            "height": "66",
+            "round": "0",
+            "timestamp": "2019-02-12T10:03:21.155663106Z",
+            "type": 2,
+            "block_id": {
+              "hash": "37B63B07BF3CFE2F0229C238F48FD56484B4B148",
+              "parts": {
+                "total": "1",
+                "hash": "65F0CC33182344945CFC3AC7CFAE9433C2DBFD9B"
+              }
+            },
+            "signature": {
+              "type": "tendermint/SignatureEd25519",
+              "value": "lv5Wa4I50Lqf3MhL+03t8PBMY/R9bG2XL5Q+UVZ/o3MmtlmZ8wPSDKdz7UCwmEZAJu0OWaNWOchEJrcjXWHuAg=="
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+  font-family: Arial;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h3>Transaction Form</h3>
+
+
+<div class="container">
+  <form action="http://localhost:5000/transaction" method = "post">
+    <label for="hash">Hash</label>
+    <input type="text" id="hash" name="hash_Object" placeholder="Id..">
+
+    <label for="data">Data</label>
+    <input type="text" id="data" name="asset" placeholder="Data..">
+
+    <label for="metadata">Metadata</label>
+    <input type="text" id="metadata" name="asset_metadata" placeholder="Metadata..">
+
+    
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>

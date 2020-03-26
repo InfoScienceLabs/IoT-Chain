@@ -1,0 +1,392 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "leadgen",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://0.0.0.0:8081/"
+    }
+  ],
+  "paths": {
+    "/queues": {
+      "post": {
+        "tags": ["Endpoints"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueuesPostRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueuesPostResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/queues/{id}": {
+      "get": {
+        "tags": ["Endpoints"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "refresh",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["refresh"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueuesIDGetResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/websites/{id}": {
+      "get": {
+        "tags": ["Endpoints"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "refresh",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["refresh"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebsitesIDGetResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacts/{id}": {
+      "get": {
+        "tags": ["Endpoints"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "refresh",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["refresh"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactsIDGetResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "QueuesPostRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["Keyword", "Website"]
+          },
+          "payload": {
+            "type": "string"
+          }
+        },
+        "required": ["type", "payload"],
+        "example": {
+          "type": "Website",
+          "payload": "https://www.cognierblock.com/"
+        }
+      },
+      "QueuesPostResponse": {
+        "type": "object",
+        "properties": {
+          "queue": {
+            "$ref": "#/components/schemas/Queue"
+          }
+        }
+      },
+      "QueuesIDGetResponse": {
+        "type": "object",
+        "properties": {
+          "queue": {
+            "$ref": "#/components/schemas/Queue"
+          },
+          "websites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Website"
+            }
+          }
+        }
+      },
+      "WebsitesIDGetResponse": {
+        "type": "object",
+        "properties": {
+          "website": {
+            "$ref": "#/components/schemas/Website"
+          },
+          "emails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contact"
+            }
+          }
+        }
+      },
+      "ContactsIDGetResponse": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "$ref": "#/components/schemas/Contact"
+          }
+        }
+      },
+      "Exception": {
+        "type": "object",
+        "properties": {
+          "exception": {
+            "type": "string"
+          }
+        },
+        "required": ["exception"],
+        "example": {
+          "exception": "Exception"
+        }
+      },
+      "Queue": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["Keyword", "Website"]
+          },
+          "payload": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["Completed", "Pending"]
+          },
+          "timestamps_insert": {
+            "type": "string"
+          },
+          "timestamps_update": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 1,
+          "type": "Website",
+          "payload": "https://www.cognierblock.com",
+          "status": "Completed",
+          "timestamps_insert": "0000-00-00T00:00:0.000000Z",
+          "timestamps_update": "0000-00-00T00:00:0.000000Z"
+        }
+      },
+      "Website": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["Completed", "Pending"]
+          },
+          "timestamps_insert": {
+            "type": "string"
+          },
+          "timestamps_update": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 1,
+          "name": "https://www.cognierblock.com",
+          "status": "Completed",
+          "timestamps_insert": "0000-00-00T00:00:0.000000Z",
+          "timestamps_update": "0000-00-00T00:00:0.000000Z"
+        }
+      },
+      "Contact": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "photo": {
+            "type": "string"
+          },
+          "designation": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "facebook": {
+            "type": "string"
+          },
+          "instagram": {
+            "type": "string"
+          },
+          "linkedin": {
+            "type": "string"
+          },
+          "twitter": {
+            "type": "string"
+          },
+          "statuses": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "timestamps_insert": {
+            "type": "string"
+          },
+          "timestamps_update": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 1,
+          "email": "name@domain.com",
+          "name": "First Name Last Name",
+          "photo": "https://...",
+          "designation": "Designation",
+          "phone": "0000000000",
+          "facebook": "https://facebook.com/...",
+          "instagram": "https://instagram.com/...",
+          "linkedin": "https://linkedin.com/...",
+          "twitter": "https://twitter.com/...",
+          "statuses": {
+            "Pending": "0000-00-00T00:00:00.000000Z",
+            "Success": "0000-00-00T00:00:00.000000Z",
+            "Failure": "0000-00-00T00:00:00.000000Z"
+          },
+          "timestamps_insert": "0000-00-00T00:00:0.000000Z",
+          "timestamps_update": "0000-00-00T00:00:0.000000Z"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Endpoints"
+    }
+  ]
+}

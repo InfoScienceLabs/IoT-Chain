@@ -1,0 +1,615 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is REST API Documentation for <b>nTer</b> `Vault` BlockChain service<br><p><b>Transactions:</b><br> <ul><li>At which device this transaction has been done</li> <li>User who has made this transaction</li></ul></p><p><b>Users:</b> <ul><li>Devices this user has</li><li>Transaction done by this user</li></ul></p><p><b>Devices</b><ul><li>User who owns this device</li><li>Transactions done under this device</li></ul></p>",
+    "version": "1.5.0",
+    "title": "nTer - Vault",
+    "termsOfService": "http://getnter.com/terms/",
+    "contact": {
+      "email": "tech@getnter.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "vault.getnter.com:3000",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https",
+  ],
+  "tags": [
+    {
+      "name": "Transactions",
+      "description": "Operations related to transactions",
+      "externalDocs": {
+        "description": "",
+        "url": "http://"
+      }
+    },
+    {
+      "name": "Devices",
+      "description": "Operations realted to devices"
+    },
+    {
+      "name": "Users",
+      "description": "Operations about user",
+      "externalDocs": {
+        "description": "",
+        "url": "http://"
+      }
+    }
+  ],
+  "paths": {
+    "/transactions/{page}": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "get transactions with page",
+        "description": "Returns a 10 records of transactions with user and device",
+        "operationId": "getTx-PG",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "description": "page number of the transaction",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid page number supplied"
+          },
+          "404": {
+            "description": "transaction not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/usr_transaction/{usr_hash}/{txn_page_num}": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "get user's transactions with page",
+        "description": "Returns transactions of a user",
+        "operationId": "getTx-USR-PG",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "usr_hash",
+            "in": "path",
+            "description": "hash of a user",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "txn_page_num",
+            "in": "path",
+            "description": "page number of the transaction",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid page number supplied"
+          },
+          "404": {
+            "description": "transaction not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/usr_transaction/{usr_hash}/{txn_page_num}/{txn_page_size}/{txn_skips}": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "get user's transactions with page and page size",
+        "description": "Returns transactions by user hash and page number and page size as specified",
+        "operationId": "getTX-USR-PG-PS",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "usr_hash",
+            "in": "path",
+            "description": "hash of a user",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "txn_page_num",
+            "in": "path",
+            "description": "page number of the transaction",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          },
+          {
+            "name": "txn_page_size",
+            "in": "path",
+            "description": "Number of records per page",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          },
+          {
+            "name": "txn_skips",
+            "in": "path",
+            "description": "Number of previous transactions to skip",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid page number supplied"
+          },
+          "404": {
+            "description": "transaction not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/transaction/{device_hash}/{txn_page_num}": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "get device's transactions with page",
+        "description": "Returns transactions for a device",
+        "operationId": "getTx-DEV-PG",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "device_hash",
+            "in": "path",
+            "description": "hash of a device",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "txn_page_num",
+            "in": "path",
+            "description": "page number of the transaction",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid page number supplied"
+          },
+          "404": {
+            "description": "transaction not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/transaction/{device_hash}/{txn_page_num}/{txn_page_size}/{txn_skips}": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "get device's transactions with page and page size",
+        "description": "Returns transactions by device hash and page number and page size as specified",
+        "operationId": "getTX-DEV-PG-PS",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "device_hash",
+            "in": "path",
+            "description": "hash of a device",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "txn_page_num",
+            "in": "path",
+            "description": "page number of the transaction",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          },
+          {
+            "name": "txn_page_size",
+            "in": "path",
+            "description": "Number of records per page",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          },
+          {
+            "name": "txn_skips",
+            "in": "path",
+            "description": "Number of previous transactions to skip",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid page number supplied"
+          },
+          "404": {
+            "description": "transaction not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/devices/{page}": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "get devices with page",
+        "description": "Returns a 10 records of devices user and transaction",
+        "operationId": "getDEV-PG",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "description": "page number of the Devices",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid page number supplied"
+          },
+          "404": {
+            "description": "devices not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/device/{usr_hash}/{dev_page_num}": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "get user's devices with page",
+        "description": "Returns devices of a user",
+        "operationId": "getDEV-USR-PG",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "usr_hash",
+            "in": "path",
+            "description": "hash of a user",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "dev_page_num",
+            "in": "path",
+            "description": "page number of the device",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid page number supplied"
+          },
+          "404": {
+            "description": "devices not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/device/{usr_hash}/{dev_page_num}/{dev_page_size}/{dev_skips}": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "get user's devices with page and page size",
+        "description": "Returns devices by user hash and page number and page size as specified",
+        "operationId": "getDEV-USR-PG-PS",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "usr_hash",
+            "in": "path",
+            "description": "hash of a user",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "dev_page_num",
+            "in": "path",
+            "description": "page number of the device",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          },
+          {
+            "name": "dev_page_size",
+            "in": "path",
+            "description": "Number of records per page",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          },
+          {
+            "name": "dev_skips",
+            "in": "path",
+            "description": "Number of previous devices to skip",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid page number supplied"
+          },
+          "404": {
+            "description": "devices not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/users/{page}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "get users with page",
+        "description": "Returns a 10 records of users with transactions and device",
+        "operationId": "getUSR-PG",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "description": "page number of the users",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid page number supplied"
+          },
+          "404": {
+            "description": "users not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/user/{dev_hash}/{usr_page_num}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "get device's users with page",
+        "description": "Returns users of a device",
+        "operationId": "getUSR-DEV-PG",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dev_hash",
+            "in": "path",
+            "description": "hash of a device",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "usr_page_num",
+            "in": "path",
+            "description": "page number of the user",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid page number supplied"
+          },
+          "404": {
+            "description": "users not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/user/{dev_hash}/{usr_page_num}/{usr_page_size}/{usr_skips}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "get device's user with page and page size",
+        "description": "Returns users by device hash and page number and page size as specified",
+        "operationId": "getUSR-DEV-PG-PS",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dev_hash",
+            "in": "path",
+            "description": "hash of a user",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "usr_page_num",
+            "in": "path",
+            "description": "page number of the users",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          },
+          {
+            "name": "usr_page_size",
+            "in": "path",
+            "description": "Number of records per page",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          },
+          {
+            "name": "usr_skips",
+            "in": "path",
+            "description": "Number of previous users to skip",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid page number supplied"
+          },
+          "404": {
+            "description": "users not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about nTer",
+    "url": "http://getnTer.com"
+  }
+}
