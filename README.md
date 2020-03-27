@@ -91,4 +91,14 @@ export FLASK_DEBUG=1
 
 After that you should be able to execute the `flask run` command normally.
 
+## Authors
+
+* **INFO SCIENCE LABS** - *Initial work* - [Info Science Lab](https://github.com/Infosciencelabs)
+
+See also the list of [contributors](https://github.com/Infosciencelabsdev/Garuda/graphs/contributors) who participated in this project.
+## Contact Us
+  Email:- info@infoscience.co
+## License
+This project is licensed under the Apache License- see the [LICENSE.md](LICENSE.md) file for details
+
 
