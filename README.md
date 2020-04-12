@@ -1,5 +1,26 @@
 # IoT-Chain
-IoT-Chain is python flask application used  as API of [IoT-chain-Explorer](https://github.com/InfoScienceLabs/IoT-chain-Explorer) 
+Internet of Things, more generally referred to as ‘IoT’ among the masses is the next major step towards achieving sustainable absolute automaton and advancing in the field of assistive technology to control menial chore. Electronic devices are connected over a network with these devices being able to communicate with each other. This forms the basic structure of IoT.  
+Traditional IoT architecture can be considered to be centralized to a comparable extent. The data that is collected as a result of provision of services to the users is stored in central servers which are managed by influential groups or corporations. This leaves the data prone to misuse and theft.  
+IoT chain is a lite server side application layer for IoT devices . This application layer provides a way for
+generalization of architecture to achieve swift integration. It is based majorly on Blockchain technology. Decentralization is at the forefront of any innovation that takes this forward. Using blockchain, the data which is collected by virtue of users using the services is stored in a a decentralized form where no single person or group has access to all the data and even if they do have access it is immutable. This increases security. IoT chain adopts certain technical algorithms to work on blockchain, these novel algorithms make it unique and safe operating system for IoT centered machinery.   
+
+  
+ ### Technical Details:
+  <ul>
+  <li><b> PBFT </b>  </li> 
+   BFT or the Byzantine fault tolerance is a feature that arises in distributed systems such as a blockchain based network when the system is able to reach a consensus (i.e. to approve a transaction) even when a few nodes do not respond to the particular course of action. There are various methods proposed to handle this in distributed systems. The PBFT or Practical Byzantine Fault tolerance is a state machine replication algorithm which bases itself on the regularity of message passing. It has three basic stages, namely ‘pre-prepare’, ‘prepare’ and ‘confirm’. If the total number of nodes in a particular network is ‘N’, then the PBFT algorithm is able to deliver a fault tolerance of (N-1)/3. It is a consensus algorithm; different consensus algorithms are deemed to create different performance and IoT chain uses PBFT. Blockchain based on PBFT consensus algorithm has already been applied in various commercial and public products worldwide. Some of these include a digital currency project by the Central Bank of China, Bumeng Blockchain and IBM’s hyperledger. By adhering to PBFT consensus, IoT chain has improved performance by carefully striking the balance between extensibility and performance needs by adjusting nodal weights   
+  <li><b> DAG </b> </li>
+   Blockchain’s linked-list type data structure is facing a lot of issues as number of users expand. It is increasing transaction fees in case of certain decentralized currencies and reducing the overall performance. IoT chain uses a DAG type of topological structure which is short for Directed Acyclic Graph. DAG changes the generically used longest-chain consensus to heaviest-chain consensus which solves the problem of emerging centralization in blockchain, binding proof of work with each transaction that is approved in a skillful manner. Using DAG, we are able to improve the throughput capacity of the network, lowering transaction costs. 
+</ul>   
+
+ Smart IoT devices which can carry a group of tasks replacing a human have given rise to terminologies such as a ‘Cyber  Physical system’ or a CPS. It is basically integration of IoT with a platform for intelligent analysis of the system. CPS can be considered as a more advanced IoT which is able to compute big chunks of information and do tasks in which traditional IoT systems might be render themselves unable.  
+
+IoT chain’s reliability can be understood clearly by taking a simple example. Creating an analogy, let us assume a GPS system. Now, certain intrinsic features of this GPS system is that it is a network in the first place, this network has a lot of users using it i.e. mobile devices connected to it. Satellites orbiting the Earth are constantly sending out information about the location to the devices. This information transfer between the devices and the satellite can be considered as a transaction. The Satellite can be considered as a central device and user’s GPS enabled phones to be secondary devices. Whenever a transaction or an information transfer occurs, the data is exchanged and IoT chain’s blockchain infrastructure helps to secure the data transfer. This is done by defining data with hash codes and not by generic codes. Location data of one user should not be available to any other user on the network for privacy concerns, IoT chain’s security features help in achieving the same goal.  
+
+ IoT chain aims at an architecture where a network works on different levels not based on user hierarchy but on connectivity and the type of processing which is done on each level. Such system architecture is portable to be used across various devices. This can greatly increase the stability of the IoT ecosystem and make it more intelligent. 
+
+   
+
 
 ## Quick Setup:
 
