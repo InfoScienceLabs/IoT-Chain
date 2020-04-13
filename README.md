@@ -12,15 +12,20 @@ generalization of architecture to achieve swift integration. It is based majorly
 
   
  ### Technical Details:
- <p align="justify">
-  <ul>
-  <li><b> PBFT </b>  </li> 
-   BFT or the Byzantine fault tolerance is a feature that arises in distributed systems such as a blockchain based network when the system is able to reach a consensus (i.e. to approve a transaction) even when a few nodes do not respond to the particular course of action. There are various methods proposed to handle this in distributed systems. The PBFT or Practical Byzantine Fault tolerance is a state machine replication algorithm which bases itself on the regularity of message passing. It has three basic stages, namely ‘pre-prepare’, ‘prepare’ and ‘confirm’. If the total number of nodes in a particular network is ‘N’, then the PBFT algorithm is able to deliver a fault tolerance of (N-1)/3. It is a consensus algorithm; different consensus algorithms are deemed to create different performance and IoT chain uses PBFT. Blockchain based on PBFT consensus algorithm has already been applied in various commercial and public products worldwide. Some of these include a digital currency project by the Central Bank of China, Bumeng Blockchain and IBM’s hyperledger. By adhering to PBFT consensus, IoT chain has improved performance by carefully striking the balance between extensibility and performance needs by adjusting nodal weights   
-  <li><b> DAG </b> </li>
+ 
+  <dl>
+  <dt> PBFT   </dt>
+   <dd align="justify">
+   BFT or the Byzantine fault tolerance is a feature that arises in distributed systems such as a blockchain based network when the system is able to reach a consensus (i.e. to approve a transaction) even when a few nodes do not respond to the particular course of action. There are various methods proposed to handle this in distributed systems. The PBFT or Practical Byzantine Fault tolerance is a state machine replication algorithm which bases itself on the regularity of message passing. It has three basic stages, namely ‘pre-prepare’, ‘prepare’ and ‘confirm’. If the total number of nodes in a particular network is ‘N’, then the PBFT algorithm is able to deliver a fault tolerance of (N-1)/3. It is a consensus algorithm; different consensus algorithms are deemed to create different performance and IoT chain uses PBFT. Blockchain based on PBFT consensus algorithm has already been applied in various commercial and public products worldwide. Some of these include a digital currency project by the Central Bank of China, Bumeng Blockchain and IBM’s hyperledger. By adhering to PBFT consensus, IoT chain has improved performance by carefully striking the balance between extensibility and performance needs by adjusting nodal weights
+ </dd>
+ 
+  <dt> DAG </dt>
+   <dd align="justify">
    Blockchain’s linked-list type data structure is facing a lot of issues as number of users expand. It is increasing transaction fees in case of certain decentralized currencies and reducing the overall performance. IoT chain uses a DAG type of topological structure which is short for Directed Acyclic Graph. DAG changes the generically used longest-chain consensus to heaviest-chain consensus which solves the problem of emerging centralization in blockchain, binding proof of work with each transaction that is approved in a skillful manner. Using DAG, we are able to improve the throughput capacity of the network, lowering transaction costs. 
-</ul>   
-</p>
-<p align="justify">
+ </dd>
+ </dl>
+
+<p align="justify" >
  Smart IoT devices which can carry a group of tasks replacing a human have given rise to terminologies such as a ‘Cyber  Physical system’ or a CPS. It is basically integration of IoT with a platform for intelligent analysis of the system. CPS can be considered as a more advanced IoT which is able to compute big chunks of information and do tasks in which traditional IoT systems might be render themselves unable.  
 </p>
 <p align="justify">
