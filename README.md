@@ -132,7 +132,7 @@ After that you should be able to execute the `flask run` command normally.
 
 * **INFO SCIENCE LABS** - *Initial work* - [Info Science Lab](https://github.com/Infosciencelabs)
 
-See also the list of [contributors](https://github.com/Infosciencelabsdev/Garuda/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/InfoScienceLabs/IoT-Chain/graphs/contributors) who participated in this project.
 ## Contact Us
   Email:- info@infoscience.co
 ## License
