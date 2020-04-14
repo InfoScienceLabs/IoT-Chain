@@ -54,7 +54,7 @@ pip3 install flask
 
 Code to configure your flask app (you may need to set these once each time you open a new terminal):
 ```bash
-export FLASK_APP=main.py
+export FLASK_APP=app.py
 export FLASK_RUN_HOST=0.0.0.0
 export FLASK_RUN_PORT=8080
 export FLASK_DEBUG=1
@@ -120,7 +120,7 @@ sudo pip3 install flask
 
 The settings will not be stored between sessions, so every time you open a new terminal, you'll need to run these commands, which are stored in the `run-variables.md` file for your convenience:
 ```bash
-export FLASK_APP=main.py
+export FLASK_APP=app.py
 export FLASK_RUN_HOST=0.0.0.0
 export FLASK_RUN_PORT=8080
 export FLASK_DEBUG=1
